@@ -1,0 +1,8 @@
+sample_rate: 22050
+n_cond_channels: 1
+dilation_cycle_length: 10
+residual_channels: 64
+residual_layers: 30
+noise_scales: 50
+noise_min: 0.0001
+noise_max: 0.05

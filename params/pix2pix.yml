@@ -1,0 +1,12 @@
+sample_rate: 16000
+n_fft: 1023
+hop_length: 256
+n_mels: 128
+gan_loss: 'lsgan'
+l1_coeff: 1.0
+n_blocks: 9
+norm_layer: 'instancenorm'
+ngf: 64
+padding_type: 'reflect'
+ndf: 64
+n_layers: 3
