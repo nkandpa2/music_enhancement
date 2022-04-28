@@ -50,13 +50,13 @@ As part of this project, we are releasing fully trained music enhancement models
 
 | Model Name      | Model Type | Instruments | Notes |
 | --------------- | ---------- | ----------- | ----- |
-| diffwave_vocoder_all_instruments.pt | Diffwave Vocoder | All |  |
-| diffwave_vocoder.pt | Diffwave Vocoder | Piano | |
-| mel2mel_all_instruments.pt | Mel2Mel GAN | All | |
-| mel2mel.pt | Mel2Mel GAN | Piano | |
-| sequential_training.pt | Mel2Mel GAN + Diffwave Vocoder | Piano | Diffwave model trained to convergence followed by adding an uninitialized Mel2Mel model to the input of the Diffwave model. The two models concatenated are then trained with the Diffwave objective |
-| joint_finetuning.pt | Mel2Mel GAN + Diffwave Vocoder | Piano | Diffwave and Mel2Mel trained independently and finetuned jointly with the Diffwave objective |
-| joint_training.pt | Mel2Mel GAN + Diffwave Vocoder | Piano | Diffwave and Mel2Mel models trained jointly from scratch with the Diffwave objective |
+| diffwave_vocoder_all_instruments.pt | Diffwave | All |  |
+| diffwave_vocoder.pt | Diffwave | Piano | |
+| mel2mel_all_instruments.pt | Mel2Mel | All | |
+| mel2mel.pt | Mel2Mel | Piano | |
+| sequential_training.pt | Mel2Mel + Diffwave | Piano | Diffwave model trained to convergence followed by adding an uninitialized Mel2Mel model to the input of the Diffwave model. The two models concatenated are then trained with the Diffwave objective |
+| joint_finetuning.pt | Mel2Mel + Diffwave | Piano | Diffwave and Mel2Mel trained independently and finetuned jointly with the Diffwave objective |
+| joint_training.pt | Mel2Mel + Diffwave | Piano | Diffwave and Mel2Mel models trained jointly from scratch with the Diffwave objective |
 
 Each of these models can be used to generate enhanced samples. For checkpoints containing both a mel2mel and a vocoder, use the same checkpoint as the mel2mel and vocoder source.
 
