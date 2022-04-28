@@ -13,7 +13,7 @@ The **music enhancement project** is designed to transform music recorded with c
 
 2. Download noise data from the ACE challenge dataset
     * Register to download the data from the ACE challenge website: http://www.ee.ic.ac.uk/naylor/ACEweb/index.html. Note that this dataset contains more than just noise, but for this project we only use the noise samples.
-    * Move the ace-ambient and ace-babble noise samples to `<local_data_directory>/corruptions/noise
+    * Move the ace-ambient and ace-babble noise samples to `<local_data_directory>/corruptions/noise`
 
 3. Download the room impulse response data from the DNS challenge dataset
     * Download the data from the DNS challenge repository: https://github.com/microsoft/DNS-Challenge. Note that this dataset contains more than just noise, but for this project we only use the RIRs.
