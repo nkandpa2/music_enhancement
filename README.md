@@ -45,6 +45,21 @@ In each of the sample command-lines below, one of the positional command-line ar
 * Jointly train the diffwave vocoder and pix2pix mel-to-mel translation model from scratch
   * `python train_joint.py pix2pix diffwave_vocoder  params/pix2pix.yml params/diffwave_vocoder.yml  <joint_training_run_dir> --instruments piano --epochs 4000 --dataset_path <medley_solos_db_path> --rir_path <reverb_dataset_path> --noise_path <noise_dataset_path>`
 
+## Pre-trained Models
+As part of this project, we are releasing fully trained music enhancement models at https://www.dropbox.com/s/64bkwdh89wqysgh/model-checkpoints.tgz?dl=0. The following table summarizes the various models being released:
+
+| Model Name      | Model Type | Instruments | Notes |
+| --------------- | ---------- | ----------- | ----- |
+| diffwave_vocoder_all_instruments.pt | Diffwave Vocoder | All Instruments |  |
+| diffwave_vocoder.pt | Diffwave Vocoder | Piano | |
+| mel2mel_all_instruments.pt | Mel2Mel GAN | All Instruments | |
+| mel2mel.pt | Mel2Mel GAN | Piano | |
+| sequential_training.pt | Mel2Mel GAN + Diffwave Vocoder | Piano | Diffwave and Mel2Mel trained sequentially using the Diffwave objective |
+| joint_finetuning.pt | Mel2Mel GAN + Diffwave Vocoder | Piano | Diffwave and Mel2Mel trained independently and finetuned jointly with the Diffwave objective |
+| joint_training.pt | Mel2Mel GAN + Diffwave Vocoder | Piano | Diffwave and Mel2Mel models trained jointly from scratch with the Diffwave objective |
+
+Each of these models can be used to generate enhanced samples. For checkpoints containing both a mel2mel and a vocoder, use the same checkpoint as the mel2mel and vocoder source.
+
 ## Generating Enhanced Samples
 To generate an enhanced version of a particular .wav file use the following command:
 * `python -m scripts.generate_from_wav <path_to_wav> <diffwave_vocoder_checkpoint> params/diffwave_vocoder.yml <mel2mel_checkpoint> params/pix2pix.yml <output_path> --crossfade`
