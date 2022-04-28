@@ -23,7 +23,7 @@ The **music enhancement project** is designed to transform music recorded with c
     * `python -m scripts.split_data reverb <local_data_directory>/corruptions/reverb/small-room <local_data_directory>/corruptions/reverb/medium-room <local_data_directory> --rate 16000 --validation_fraction 0.1 --test_fraction 0.1`
     * `python -m scripts.split_data noise <local_data_directory>/corruptions/noise/ace-ambient <local_data_directory>/corruptions/noise/ace-babble <local_data_directory>/corruptions/noise/demand <local_data_directory> --rate 16000 --noise_sample_length 47555 --validation_fraction 0.1 --test_fraction 0.1`
   
-4. Download Medley-Solos-DB from https://zenodo.org/record/1344103#.Yg__Yi-B1QI. Put the data in <local_data_directory>/medley-solos-db.
+4. Download Medley-Solos-DB from https://zenodo.org/record/1344103#.Yg__Yi-B1QI. Put the data in `<local_data_directory>/medley-solos-db`.
 
 The end result of these steps is that there should be two `.npz` files in `<local_data_directory>` containing the reverb and noise datasets and a directory `<local_data_directory>/medley-solos-db` containing the Medley-Solos-DB music dataset.
   
