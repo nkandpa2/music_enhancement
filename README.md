@@ -9,16 +9,21 @@ The **music enhancement project** is designed to transform music recorded with c
 * If using pip: `pip install -r pip_requirements.txt`
 
 ## Data
-1. Choose a local data directory and run `mkdir <local_data_directory>/audio-enhancement-production` and `mkdir <local_data_directory>/medley-solos-db`
+1. Choose a local data directory and run `mkdir -p <local_data_directory>/corruptions/noise`, `mkdir -p <local_data_directory>/corruptions/reverb`, and `mkdir <local_data_directory>/medley-solos-db`
 
-2. Download noise and reverb data from TODO
-    * `aws s3 cp TODO <local_data_directory>/audio-enhancement-production --recursive`
+2. Download noise data from the ACE challenge dataset
+    * Register to download the data from the ACE challenge website: http://www.ee.ic.ac.uk/naylor/ACEweb/index.html. Note that this dataset contains more than just noise, but for this project we only use the noise samples.
+    * Move the ace-ambient and ace-babble noise samples to `<local_data_directory>/corruptions/noise
+
+3. Download the room impulse response data from the DNS challenge dataset
+    * Download the data from the DNS challenge repository: https://github.com/microsoft/DNS-Challenge. Note that this dataset contains more than just noise, but for this project we only use the RIRs.
+    * Move the small and medium room RIRs to `<local_data_directory>/corruptions/reverb`
     
 3. Split the noise and reverb data into train, validation, and test
-    * `python -m scripts.split_data reverb <local_data_directory>/audio-enhancement-production/reverb/small-room <local_data_directory>/audio-enhancement-production/reverb/medium-room <local_data_directory> --rate 16000 --validation_fraction 0.1 --test_fraction 0.1`
-    * `python -m scripts.split_data noise <local_data_directory>/audio-enhancement-production/noise/ace-ambient <local_data_directory>/audio-enhancement-production/noise/ace-babble <local_data_directory>/audio-enhancement-production/noise/demand <local_data_directory> --rate 16000 --noise_sample_length 47555 --validation_fraction 0.1 --test_fraction 0.1`
+    * `python -m scripts.split_data reverb <local_data_directory>/corruptions/reverb/small-room <local_data_directory>/corruptions/reverb/medium-room <local_data_directory> --rate 16000 --validation_fraction 0.1 --test_fraction 0.1`
+    * `python -m scripts.split_data noise <local_data_directory>/corruptions/noise/ace-ambient <local_data_directory>/corruptions/noise/ace-babble <local_data_directory>/corruptions/noise/demand <local_data_directory> --rate 16000 --noise_sample_length 47555 --validation_fraction 0.1 --test_fraction 0.1`
   
-4. Download Medley-Solos-DB from https://zenodo.org/record/1344103#.Yg__Yi-B1QI. Put the data to <local_data_directory>/medley-solos-db.
+4. Download Medley-Solos-DB from https://zenodo.org/record/1344103#.Yg__Yi-B1QI. Put the data in <local_data_directory>/medley-solos-db.
 
 The end result of these steps is that there should be two `.npz` files in `<local_data_directory>` containing the reverb and noise datasets and a directory `<local_data_directory>/medley-solos-db` containing the Medley-Solos-DB music dataset.
   
