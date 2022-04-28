@@ -54,7 +54,7 @@ As part of this project, we are releasing fully trained music enhancement models
 | diffwave_vocoder.pt | Diffwave Vocoder | Piano | |
 | mel2mel_all_instruments.pt | Mel2Mel GAN | All Instruments | |
 | mel2mel.pt | Mel2Mel GAN | Piano | |
-| sequential_training.pt | Mel2Mel GAN + Diffwave Vocoder | Piano | Diffwave and Mel2Mel trained sequentially using the Diffwave objective |
+| sequential_training.pt | Mel2Mel GAN + Diffwave Vocoder | Piano | Diffwave model trained to convergence followed by adding an uninitialized Mel2Mel model to the input of the Diffwave model. The two models concatenated are then trained with the Diffwave objective |
 | joint_finetuning.pt | Mel2Mel GAN + Diffwave Vocoder | Piano | Diffwave and Mel2Mel trained independently and finetuned jointly with the Diffwave objective |
 | joint_training.pt | Mel2Mel GAN + Diffwave Vocoder | Piano | Diffwave and Mel2Mel models trained jointly from scratch with the Diffwave objective |
 
